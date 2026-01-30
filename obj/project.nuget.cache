@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "TSVPZxqt9t4=",
+  "success": true,
+  "projectFilePath": "C:\\Users\\sofia\\Downloads\\Faculdade 2º Ano\\Programação Orientada a Objetos\\calendario-pessoal\\ProjetoCalendario\\ProjetoCalendario.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\sofia\\.nuget\\packages\\microsoft.aspnetcore.openapi\\9.0.0\\microsoft.aspnetcore.openapi.9.0.0.nupkg.sha512",
+    "C:\\Users\\sofia\\.nuget\\packages\\microsoft.openapi\\1.6.17\\microsoft.openapi.1.6.17.nupkg.sha512"
+  ],
+  "logs": []
+}
