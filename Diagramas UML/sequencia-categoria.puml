@@ -1,0 +1,11 @@
+@startuml
+actor User
+User -> CategoryController : AddCategory(name)
+CategoryController -> FileStorage : LoadCategories()
+FileStorage --> CategoryController : listaCategorias
+CategoryController -> Category : new Category()
+Category --> CategoryController
+CategoryController -> FileStorage : SaveCategories()
+FileStorage --> CategoryController : OK
+CategoryController --> User : Categoria adicionada
+@enduml

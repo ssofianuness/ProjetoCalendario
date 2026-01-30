@@ -1,0 +1,55 @@
+@startuml
+class User {
+  - int Id
+  - string Name
+  - string Email
+  - string Password
+  - string Role  // normal/admin
+  --
+  + ValidatePassword()
+}
+
+class Category {
+  - int Id
+  - string Name
+}
+
+class Event {
+  - int Id
+  - string Title
+  - string Description
+  - DateTime Start
+  - DateTime End
+  - Category Category
+  - string Priority
+  --
+  + ValidateDates()
+}
+
+class FileStorage {
+  + LoadUsers()
+  + LoadEvents()
+  + LoadCategories()
+  + SaveUsers()
+  + SaveEvents()
+  + SaveCategories()
+}
+
+class CalendarService {
+  + AddEvent()
+  + EditEvent()
+  + DeleteEvent()
+  + CheckConflicts()
+  + GetEvents()
+}
+
+User "1" --> "*" Event : cria
+Category "1" --> "*" Event : classifica
+CalendarService --> Event
+CalendarService --> Category
+CalendarService --> User
+FileStorage --> User
+FileStorage --> Category
+FileStorage --> Event
+
+@enduml

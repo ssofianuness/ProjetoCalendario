@@ -1,0 +1,8 @@
+@startuml
+actor User
+User -> AuthController : Login(email, password)
+AuthController -> FileStorage : LoadUsers()
+FileStorage --> AuthController : listaUsers
+AuthController -> User : ValidatePassword()
+AuthController --> User : Login OK
+@enduml

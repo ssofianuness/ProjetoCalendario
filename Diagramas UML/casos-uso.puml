@@ -1,0 +1,42 @@
+@startuml
+left to right direction
+actor "Utilizador" as U
+actor "Administrador" as A
+
+rectangle "Sistema de Gestão de Calendário" {
+  
+  usecase "Registar Utilizador" as UC1
+  usecase "Login" as UC2
+  usecase "Gerir Perfil" as UC3
+
+  usecase "Criar Evento" as UC4
+  usecase "Editar Evento" as UC5
+  usecase "Eliminar Evento" as UC6
+  usecase "Listar Eventos" as UC7
+
+  usecase "Gerir Categorias" as UC8
+
+  usecase "Validar Dados\n(Eventos)" as UC9
+  usecase "Ver Relatórios\n e Calendário" as UC10
+  
+  usecase "Gerir Utilizadores" as UC11
+}
+
+U --> UC1
+U --> UC2
+U --> UC3
+U --> UC4
+U --> UC5
+U --> UC6
+U --> UC7
+U --> UC8
+U --> UC9
+U --> UC10
+
+A --> UC11  : extends
+A --> UC8
+
+UC4 --> UC9
+UC5 --> UC9
+
+@enduml

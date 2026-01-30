@@ -1,0 +1,11 @@
+@startuml
+actor User
+User -> CalendarService : AddEvent(eventData)
+CalendarService -> Event : new Event()
+Event --> CalendarService : event
+CalendarService -> Event : ValidateDates()
+CalendarService -> CalendarService : CheckConflicts()
+CalendarService -> FileStorage : SaveEvents()
+FileStorage --> CalendarService : OK
+CalendarService --> User : Evento criado com sucesso
+@enduml
