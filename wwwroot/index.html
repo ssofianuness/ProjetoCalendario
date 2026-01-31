@@ -3,37 +3,54 @@
 <head>
     <meta charset="UTF-8">
     <title>Gestão de Calendário Pessoal</title>
+    <!-- Importa o ficheiro CSS com os estilos da interface -->
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
-<h1>📅 Calendário Pessoal</h1>
+<!-- Título da página -->
+<h1> Calendário Pessoal</h1>
 
+<!-- ------------------------------
+     SEÇÃO DE CATEGORIAS
+     ------------------------------ -->
 <section>
     <h2>Categorias</h2>
+    <!-- Campo de texto para inserir o nome de uma nova categoria -->
     <input id="catName" placeholder="Nova categoria">
+    <!-- Botão que chama a função addCategory() do JavaScript -->
     <button onclick="addCategory()">Adicionar</button>
+    <!-- Lista onde as categorias existentes serão apresentadas -->
     <ul id="categoryList"></ul>
 </section>
 
+<!-- ------------------------------
+     SECÇÃO DE EVENTOS
+     ------------------------------ -->
 <section>
     <h2>Eventos</h2>
 
+    <!-- Campos de texto para título e descrição do evento -->
     <input id="title" placeholder="Título">
     <input id="desc" placeholder="Descrição">
 
+    <!-- Data de início e fim do evento -->
     <input type="datetime-local" id="start">
     <input type="datetime-local" id="end">
 
+    <!-- Dropdown para escolher a categoria do evento -->
     <select id="category"></select>
+    <!-- Dropdown para escolher a prioridade do evento -->
     <select id="priority">
         <option>Baixa</option>
         <option>Média</option>
         <option>Alta</option>
     </select>
 
+    <!-- Botão que chama a função addEvent() do JavaScript -->
     <button onclick="addEvent()">Adicionar Evento</button>
 
+    <!-- Tabela onde os eventos serão apresentados -->
     <table>
         <thead>
             <tr>
@@ -45,10 +62,12 @@
                 <th>Ações</th>
             </tr>
         </thead>
+        <!-- Corpo da tabela preenchido dinamicamente pelo JavaScript -->
         <tbody id="eventTable"></tbody>
     </table>
 </section>
 
+<!-- Importa o ficheiro JavaScript com toda a lógica da aplicação -->
 <script src="js/app.js"></script>
 
 </body>

@@ -1,41 +1,49 @@
+/* Define a fonte principal, margens gerais e cor de fundo da página */
 body {
-    font-family: Arial, sans-serif;
-    margin: 40px;
-    background: #f4f6f8;
+    font-family: Arial, sans-serif; /* Fonte usada em todo o site */
+    margin: 40px;                   /* Margem externo da página */
+    background: #f4f6f8;          /* Cor de fundo da página */
 }
 
+/* Centraliza o título principal da página */
 h1 {
     text-align: center;
 }
 
+/* Estilo para cada secção do conteúdo */
 section {
-    background: white;
-    padding: 20px;
-    margin-bottom: 30px;
-    border-radius: 8px;
+    background: white;            /* Fundo branco para destacar o conteúdo */
+    padding: 20px;                  /* Espaçamento interno */
+    margin-bottom: 30px;            /* Espaço abaixo de cada secção */
+    border-radius: 8px;             /* Cantos arredondados */
 }
 
+/* Estilo comum para inputs, selects e botões */
 input, select, button {
-    padding: 6px;
-    margin: 4px;
+    padding: 6px;                   /* Espaçamento interno */
+    margin: 4px;                    /* Espaço externo */
 }
 
+/* Cursor em forma de mão ao passar por cima dos botões */
 button {
     cursor: pointer;
 }
 
+/* Estilo base para tabelas */
 table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 15px;
+    width: 100%;                   /* Largura total da tabela */
+    border-collapse: collapse;     /* Remove espaçamento entre células */
+    margin-top: 15px;              /* Espaço acima da tabela */
 }
 
+/* Estilo das células da tabela */
 th, td {
-    border: 1px solid #ccc;
-    padding: 8px;
-    text-align: center;
+    border: 1px solid #ccc;      /* Borda cinza clara */
+    padding: 8px;                  /* Espaçamento interno */
+    text-align: center;            /* Alinhamento do texto ao centro */
 }
 
+/* Estilo específico para cabeçalhos da tabela */
 th {
-    background: #eee;
+    background: #eee;           /* Fundo cinza claro para cabeçalhos */
 }

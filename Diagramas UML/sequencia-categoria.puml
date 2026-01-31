@@ -1,11 +1,22 @@
+//Início do diagrama UML. Indica ao PlantUML que começa a definição do diagrama.
 @startuml
+//Definição do ator User que interage com o sistema.
 actor User
+//Sequência de interações para adicionar uma categoria, a seta indica uma chamada de método do User para o controlador.
 User -> CategoryController : AddCategory(name)
+//Interação do controlador com o FileStorage para carregar as categorias existentes.
 CategoryController -> FileStorage : LoadCategories()
+//Resposta do FileStorage com a lista de categorias carregadas.
 FileStorage --> CategoryController : listaCategorias
+//Criação de uma nova instância da classe Category.
 CategoryController -> Category : new Category()
+//Resposta da criação da categoria para o controlador (instância criada).
 Category --> CategoryController
+//Interação do controlador com o FileStorage para salvar a nova categoria.
 CategoryController -> FileStorage : SaveCategories()
+//Resposta do FileStorage confirmando que a categoria foi salva com sucesso.
 FileStorage --> CategoryController : OK
+//Resposta final do controlador para o User confirmando que a categoria foi adicionada com sucesso.
 CategoryController --> User : Categoria adicionada
+//Fim do diagrama UML. Indica ao PlantUML que termina a definição do diagrama.
 @enduml

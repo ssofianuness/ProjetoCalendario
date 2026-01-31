@@ -1,11 +1,22 @@
+//Início do diagrama UML. Indica ao PlantUML que começa a definição do diagrama.
 @startuml
+//Definição do ator User que interage com o sistema.
 actor User
+//Sequência de interações para adicionar um evento, isto indica o processo de criação de um novo evento.
 User -> CalendarService : AddEvent(eventData)
+//Interação do serviço de calendário para criar uma nova instância da classe Event.
 CalendarService -> Event : new Event()
+//Resposta da criação do evento para o serviço de calendário (instância criada).
 Event --> CalendarService : event
+//Chamada do método para validar as datas do evento.
 CalendarService -> Event : ValidateDates()
+//Chamada do método para verificar conflitos entre eventos existentes.
 CalendarService -> CalendarService : CheckConflicts()
+//Interação do serviço de calendário com o FileStorage para salvar o novo evento.
 CalendarService -> FileStorage : SaveEvents()
+//Resposta do FileStorage confirmando que o evento foi salvo com sucesso.
 FileStorage --> CalendarService : OK
+//Resposta final do serviço de calendário para o User confirmando que o evento foi criado com sucesso.
 CalendarService --> User : Evento criado com sucesso
+//Fim do diagrama UML. Indica ao PlantUML que termina a definição do diagrama.
 @enduml

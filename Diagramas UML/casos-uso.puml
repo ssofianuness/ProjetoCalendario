@@ -1,27 +1,37 @@
 @startuml
+//Define a direção do diagrama de casos de uso da esquerda para a direita.
 left to right direction
+//Declaração dos atores principais do sistema.
 actor "Utilizador" as U
 actor "Administrador" as A
 
+//Caixa que representa o sistema de gestão de calendário e todos os seus casos de uso.
 rectangle "Sistema de Gestão de Calendário" {
   
+  //Casos de uso relacionados com autenticação e perfil.
   usecase "Registar Utilizador" as UC1
   usecase "Login" as UC2
   usecase "Gerir Perfil" as UC3
 
+  //Casos de uso relacionados com a gestão de eventos.
   usecase "Criar Evento" as UC4
   usecase "Editar Evento" as UC5
   usecase "Eliminar Evento" as UC6
   usecase "Listar Eventos" as UC7
 
+  //Casos de uso relacionados com a gestão de categorias.
   usecase "Gerir Categorias" as UC8
 
+  //Casos de uso relacionados com validação automática de dados dos eventos.
   usecase "Validar Dados\n(Eventos)" as UC9
+  //Casos de uso relacionados com visualização de relatórios e calendário.
   usecase "Ver Relatórios\n e Calendário" as UC10
   
+  //Caso de uso relacionado com a gestão de utilizadores, exclusivo para administradores.
   usecase "Gerir Utilizadores" as UC11
 }
 
+//Ligações do utilizador aos casos de uso que pode executar.
 U --> UC1
 U --> UC2
 U --> UC3
@@ -33,10 +43,12 @@ U --> UC8
 U --> UC9
 U --> UC10
 
-A --> UC11  : extends
-A --> UC8
+//Ligações do administrador aos casos de uso adicionais.
+A --> UC11  : extends   //Administrador tem permissões extra.
+A --> UC8               //Também pode gerir categorias.
 
-UC4 --> UC9
-UC5 --> UC9
+//Relações internas entre casos de uso.
+UC4 --> UC9   //Criar Evento depende da validação de dados.
+UC5 --> UC9   //Editar Evento depende da validação de dados.
 
 @enduml

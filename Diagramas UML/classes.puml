@@ -1,55 +1,100 @@
+//Início do diagrama UML. Indica ao PlantUML que começa a definição do diagrama.
 @startuml
+
+//Definição da classe User com seus atributos e métodos.
 class User {
+  //Atributo privado do tipo int que representa o ID do usuário.
   - int Id
+  //Atributo privado do tipo string que guarda o nome do usuário.
   - string Name
+  //Atributo privado do tipo string que guarda o email do usuário.
   - string Email
+  //Atributo privado do tipo string que guarda a password do usuário.
   - string Password
+  //Atributo privado do tipo string que define o papel do usuário (normal ou admin).
   - string Role  // normal/admin
+  //Separador entre atributos e métodos.
   --
+  //Método público que valida a senha do usuário.
   + ValidatePassword()
 }
 
+//Definição da classe Category com seus atributos.
 class Category {
+  //Atributo privado do tipo int que representa o ID da categoria.
   - int Id
+  //Atributo privado do tipo string que guarda o nome da categoria.
   - string Name
 }
 
+//Definição da classe Event com seus atributos e métodos.
 class Event {
+  //Atributo privado do tipo int que representa o ID do evento.
   - int Id
+  //Atributo privado do tipo string que guarda o título do evento.
   - string Title
+  //Atributo privado do tipo string que guarda a descrição do evento.
   - string Description
+  //Atributo privado do tipo DateTime que representa a data e hora de início do evento.
   - DateTime Start
+  //Atributo privado do tipo DateTime que representa a data e hora de término do evento.
   - DateTime End
+  //Atributo privado do tipo Category que referencia a categoria do evento.
   - Category Category
+  //Atributo privado do tipo string que  a prioridade do evento.
   - string Priority
+  //Separador entre atributos e métodos.
   --
+  //Método público que valida as datas do evento.
   + ValidateDates()
 }
 
+//Definição da classe FileStorage com seus métodos, responsável por carregar dados em ficheiros.
 class FileStorage {
+  //Método público que carrega os usuários do ficheiro.
   + LoadUsers()
+  //Método público que carrega os eventos do ficheiro.
   + LoadEvents()
+  //Método público que carrega as categorias do ficheiro.
   + LoadCategories()
+  //Método público que guarda os usuários no ficheiro.
   + SaveUsers()
+  //Método público que guarda os eventos no ficheiro.
   + SaveEvents()
+  //Método público que guarda as categorias no ficheiro.
   + SaveCategories()
 }
 
+//Definição da classe CalendarService com seus métodos, responsável pela lógica do calendário.
 class CalendarService {
+  //Método público que adiciona um evento.
   + AddEvent()
+  //Método público que edita um evento.
   + EditEvent()
+  //Método público que apaga um evento.
   + DeleteEvent()
+  //Método público que verifica conflitos entre eventos.
   + CheckConflicts()
+  //Método público que obtém os eventos.
   + GetEvents()
 }
 
+//Relação de associação entre User e Event, indicando que um usuário pode criar vários eventos, a seta indica a direção e "cria" é o nome da relação.
 User "1" --> "*" Event : cria
+//Relação de associação entre Category e Event, indicando que uma categoria pode classificar vários eventos, a seta indica a direção e "classifica" é o nome da relação.
 Category "1" --> "*" Event : classifica
+//Relação de dependência entre CalendarService e Event (por exemplo, para gerir eventos).
 CalendarService --> Event
+//Relação de dependência entre CalendarService e Category.
 CalendarService --> Category
+//Relação de dependência entre CalendarService e User (por exemplo, para permissões e autenticação).
 CalendarService --> User
+//Relação de dependência entre FileStorage e User (carregar/guardar).
 FileStorage --> User
+//Relação de dependência entre FileStorage e Category.
 FileStorage --> Category
+//Relação de dependência entre FileStorage e Event.
 FileStorage --> Event
 
+//Fim do diagrama UML. Indica ao PlantUML que termina a definição do diagrama.
 @enduml

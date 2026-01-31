@@ -1,8 +1,16 @@
+//Início do diagrama UML. Indica ao PlantUML que começa a definição do diagrama.
 @startuml
+//Definição do ator User que interage com o sistema.
 actor User
+//Sequência de interações para o login do usuário no sistema, isto indica o processo de autenticação.
 User -> AuthController : Login(email, password)
+//Interação do controlador de autenticação com o FileStorage para carregar os usuários existentes.
 AuthController -> FileStorage : LoadUsers()
+//Resposta do FileStorage com a lista de usuários carregados.
 FileStorage --> AuthController : listaUsers
+//Chamada do método para validar a senha do usuário.
 AuthController -> User : ValidatePassword()
+//Resposta final do controlador de autenticação para o User confirmando que o login foi bem sucedido.
 AuthController --> User : Login OK
+//Fim do diagrama UML. Indica ao PlantUML que termina a definição do diagrama.
 @enduml
